@@ -152,5 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafd5aac57a19d44a944baee5419169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 8738173072865485684, guid: 2a2c334646cbed24bb9f621ece35c743, type: 3}
+  pcvrSliceEffect: {fileID: 8738173072865485684, guid: 2a2c334646cbed24bb9f621ece35c743, type: 3}
+  questSliceEffect: {fileID: 3542325292054804844, guid: 2327d7d6fc774cd4db2409c85ea85ef4, type: 3}
   sliceAudioClip: {fileID: 8300000, guid: d36d830373337e9428ed88e5e09c9e6d, type: 3}
