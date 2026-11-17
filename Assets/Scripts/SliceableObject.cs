@@ -2,8 +2,23 @@ using UnityEngine;
 
 public abstract class SliceableObject : MonoBehaviour
 {
-    public GameObject sliceEffect;
+    [SerializeField] private GameObject pcvrSliceEffect;
+    [SerializeField] private GameObject questSliceEffect;
     public AudioClip sliceAudioClip;
+
+    public GameObject GetSliceEffect()
+    {
+        GameObject sliceEffect = Application.platform == RuntimePlatform.Android
+            ? questSliceEffect
+            : pcvrSliceEffect;
+
+        if (sliceEffect == null)
+        {
+            Debug.LogError($"No {(Application.platform == RuntimePlatform.Android ? "Quest" : "PCVR")} slice effect is configured on {name}.", this);
+        }
+
+        return sliceEffect;
+    }
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
