@@ -26,14 +26,24 @@ public class CanonShoot : MonoBehaviour
         if (randomFloat <= bombProb) // Shoot Random Bomb with probability
         {
             int randomBomb = Random.Range(0, bombs.Length);
-            projectile = Instantiate(bombs[randomBomb], shootPos.position, randomRotation);
+            projectile = ProjectilePool.Get(bombs[randomBomb], shootPos.position, randomRotation);
         }
         else // Shoot Random Fruit
         {
             int randomFruit = Random.Range(0, fruits.Length);
-            projectile = Instantiate(fruits[randomFruit], shootPos.position, randomRotation);
+            projectile = ProjectilePool.Get(fruits[randomFruit], shootPos.position, randomRotation);
         }
 
-        projectile.GetComponent<Rigidbody>().AddForce(shootPos.up * shootForce, ForceMode.Impulse);
+        if (projectile == null) return;
+
+        Rigidbody body = projectile.GetComponent<Rigidbody>();
+        if (body == null)
+        {
+            Debug.LogError($"Projectile prefab {projectile.name} has no Rigidbody.", projectile);
+            ProjectilePool.Return(projectile);
+            return;
+        }
+
+        body.AddForce(shootPos.up * shootForce, ForceMode.Impulse);
     }
 }

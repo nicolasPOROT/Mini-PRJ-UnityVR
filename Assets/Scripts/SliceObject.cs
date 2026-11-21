@@ -49,7 +49,7 @@ public class SliceObject : MonoBehaviour
             }
 
             // Destroy main fruit
-            Destroy(target);
+            ProjectilePool.Return(target);
 
             // Destroy sliced parts after 2 sec
             Destroy(upperHull, 2f);

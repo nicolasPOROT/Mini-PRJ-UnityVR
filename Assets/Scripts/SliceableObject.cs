@@ -25,7 +25,7 @@ public abstract class SliceableObject : MonoBehaviour
         if (collision.gameObject.CompareTag("fruitKillZone"))
         {
             OnMissed();
-            Destroy(gameObject);
+            ProjectilePool.Return(gameObject);
         }
     }
 
