@@ -44,8 +44,7 @@ public class SliceObject : MonoBehaviour
             GameObject sliceFx = sliceableObject.GetSliceEffect();
             if (sliceFx != null)
             {
-                GameObject effect = Instantiate(sliceFx, upperHull.transform.position, Quaternion.identity);
-                Destroy(effect, 2f);
+                TemporaryEffectPool.Play(sliceFx, upperHull.transform.position, Quaternion.identity);
             }
 
             // Destroy main fruit
