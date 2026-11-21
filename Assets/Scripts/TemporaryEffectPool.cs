@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-/// <summary>Reuses short-lived particle effects instead of instantiating and destroying them.</summary>
+/// <summary>Loads PCVR/Quest effects through Addressables and reuses their instances.</summary>
 public static class TemporaryEffectPool
 {
     private sealed class Pool
@@ -10,27 +12,53 @@ public static class TemporaryEffectPool
         public Transform Root;
     }
 
+    private sealed class LoadEntry
+    {
+        public AsyncOperationHandle<GameObject> Handle;
+        public bool Completed;
+        public readonly List<PendingEffect> Pending = new List<PendingEffect>();
+    }
+
+    private struct PendingEffect
+    {
+        public Vector3 Position;
+        public Quaternion Rotation;
+        public float Lifetime;
+    }
+
     private static readonly Dictionary<GameObject, Pool> Pools = new Dictionary<GameObject, Pool>();
+    private static readonly Dictionary<string, LoadEntry> Loads = new Dictionary<string, LoadEntry>();
     private static Transform poolRoot;
 
-    public static GameObject Play(GameObject prefab, Vector3 position, Quaternion rotation, float lifetime = 2f)
+    public static void Play(AssetReferenceGameObject reference, Vector3 position, Quaternion rotation, float lifetime = 2f)
     {
-        if (prefab == null) return null;
-
-        Pool pool = GetPool(prefab);
-        GameObject effect = pool.Inactive.Count > 0 ? pool.Inactive.Pop() : Create(prefab, pool);
-        effect.transform.SetParent(null);
-        effect.transform.SetPositionAndRotation(position, rotation);
-        effect.GetComponent<PooledEffect>().Begin(lifetime);
-        effect.SetActive(true);
-
-        foreach (ParticleSystem particles in effect.GetComponentsInChildren<ParticleSystem>(true))
+        if (reference == null || !reference.RuntimeKeyIsValid())
         {
-            particles.Clear(true);
-            particles.Play(true);
+            Debug.LogError("A slice effect Addressable reference is missing or invalid.");
+            return;
         }
 
-        return effect;
+        string key = reference.AssetGUID;
+        PendingEffect request = new PendingEffect { Position = position, Rotation = rotation, Lifetime = lifetime };
+
+        if (!Loads.TryGetValue(key, out LoadEntry entry))
+        {
+            entry = new LoadEntry();
+            Loads.Add(key, entry);
+            entry.Pending.Add(request);
+            entry.Handle = Addressables.LoadAssetAsync<GameObject>(reference);
+            entry.Handle.Completed += operation => CompleteLoad(key, operation);
+            return;
+        }
+
+        if (!entry.Completed)
+        {
+            entry.Pending.Add(request);
+            return;
+        }
+
+        if (entry.Handle.Status == AsyncOperationStatus.Succeeded)
+            Spawn(entry.Handle.Result, request);
     }
 
     internal static void Return(PooledEffect pooledEffect)
@@ -40,32 +68,65 @@ public static class TemporaryEffectPool
 
         Pool pool = GetPool(pooledEffect.Prefab);
         foreach (ParticleSystem particles in effect.GetComponentsInChildren<ParticleSystem>(true))
-        {
             particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        }
 
         effect.SetActive(false);
         effect.transform.SetParent(pool.Root);
         pool.Inactive.Push(effect);
     }
 
+    internal static void ReleaseAddressables()
+    {
+        foreach (LoadEntry entry in Loads.Values)
+        {
+            if (entry.Handle.IsValid()) Addressables.Release(entry.Handle);
+        }
+        Loads.Clear();
+    }
+
+    private static void CompleteLoad(string key, AsyncOperationHandle<GameObject> operation)
+    {
+        if (!Loads.TryGetValue(key, out LoadEntry entry)) return;
+        entry.Completed = true;
+
+        if (operation.Status != AsyncOperationStatus.Succeeded || operation.Result == null)
+        {
+            Debug.LogError($"Could not load slice effect Addressable '{key}': {operation.OperationException}");
+            entry.Pending.Clear();
+            return;
+        }
+
+        foreach (PendingEffect request in entry.Pending)
+            Spawn(operation.Result, request);
+        entry.Pending.Clear();
+    }
+
+    private static void Spawn(GameObject prefab, PendingEffect request)
+    {
+        Pool pool = GetPool(prefab);
+        GameObject effect = pool.Inactive.Count > 0 ? pool.Inactive.Pop() : Create(prefab, pool);
+        effect.transform.SetParent(null);
+        effect.transform.SetPositionAndRotation(request.Position, request.Rotation);
+        effect.GetComponent<PooledEffect>().Begin(request.Lifetime);
+        effect.SetActive(true);
+
+        foreach (ParticleSystem particles in effect.GetComponentsInChildren<ParticleSystem>(true))
+        {
+            particles.Clear(true);
+            particles.Play(true);
+        }
+    }
+
     private static Pool GetPool(GameObject prefab)
     {
         if (!Pools.TryGetValue(prefab, out Pool pool))
         {
-            if (poolRoot == null)
-            {
-                GameObject root = new GameObject("Temporary Effect Pool");
-                poolRoot = root.transform;
-                Object.DontDestroyOnLoad(root);
-            }
-
+            EnsurePoolRoot();
             GameObject rootObject = new GameObject(prefab.name + " Pool");
             rootObject.transform.SetParent(poolRoot);
             pool = new Pool { Root = rootObject.transform };
             Pools.Add(prefab, pool);
         }
-
         return pool;
     }
 
@@ -78,26 +139,13 @@ public static class TemporaryEffectPool
         pooledEffect.Initialize(prefab);
         return effect;
     }
-}
 
-public sealed class PooledEffect : MonoBehaviour
-{
-    public GameObject Prefab { get; private set; }
-    private float remainingLifetime;
-
-    internal void Initialize(GameObject prefab)
+    private static void EnsurePoolRoot()
     {
-        Prefab = prefab;
-    }
-
-    internal void Begin(float lifetime)
-    {
-        remainingLifetime = Mathf.Max(0.01f, lifetime);
-    }
-
-    private void Update()
-    {
-        remainingLifetime -= Time.deltaTime;
-        if (remainingLifetime <= 0f) TemporaryEffectPool.Return(this);
+        if (poolRoot != null) return;
+        GameObject root = new GameObject("Temporary Effect Pool");
+        poolRoot = root.transform;
+        Object.DontDestroyOnLoad(root);
+        root.AddComponent<AddressablePoolLifetime>();
     }
 }

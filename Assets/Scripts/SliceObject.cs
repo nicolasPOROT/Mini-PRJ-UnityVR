@@ -41,7 +41,7 @@ public class SliceObject : MonoBehaviour
             sliceableObject.IsSliced();
 
             // Juice particles
-            GameObject sliceFx = sliceableObject.GetSliceEffect();
+            var sliceFx = sliceableObject.GetSliceEffect();
             if (sliceFx != null)
             {
                 TemporaryEffectPool.Play(sliceFx, upperHull.transform.position, Quaternion.identity);

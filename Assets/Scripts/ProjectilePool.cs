@@ -95,8 +95,3 @@ public static class ProjectilePool
     }
 
 }
-
-public sealed class PooledProjectile : MonoBehaviour
-{
-    public GameObject Prefab;
-}
