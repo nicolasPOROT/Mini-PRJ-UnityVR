@@ -2326,9 +2326,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2053709001177932386, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
-  - {fileID: -6885385000596239375, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
-  - {fileID: 880679598931842220, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
+  - {fileID: 2100000, guid: b89e3602e2e0f6e4b85b3755265fa94b, type: 2}
+  - {fileID: 2100000, guid: 84ba249948b66e348988dcf03a6ee52a, type: 2}
+  - {fileID: 2100000, guid: dfce178d74686b747a1e091b4846ca44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2447,8 +2447,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9109760950974749458, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
-  - {fileID: 880679598931842220, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
+  - {fileID: 2100000, guid: 530884e6eba106946b09015dbabd210b, type: 2}
+  - {fileID: 2100000, guid: dfce178d74686b747a1e091b4846ca44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2504,7 +2504,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0d456130d21d4db49fdae55e3e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 8738173072865485684, guid: 2a2c334646cbed24bb9f621ece35c743, type: 3}
+  pcvrSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  questSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: 74622c4504d670d42a626e192f98089c, type: 3}
   dificultySelected: 3
 --- !u!33 &7658379210600716073
@@ -2527,7 +2538,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0d456130d21d4db49fdae55e3e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 8738173072865485684, guid: 2a2c334646cbed24bb9f621ece35c743, type: 3}
+  pcvrSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  questSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: d36d830373337e9428ed88e5e09c9e6d, type: 3}
   dificultySelected: 4
 --- !u!114 &7767954394670991418
@@ -2542,7 +2564,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0d456130d21d4db49fdae55e3e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 2312393614409040804, guid: 1d32e2b34b3213a4b823120348d3c823, type: 3}
+  pcvrSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  questSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: ee0d623ff2c0f82418f3e8719c113775, type: 3}
   dificultySelected: 0
 --- !u!64 &7888662941821842574
@@ -2599,7 +2632,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0d456130d21d4db49fdae55e3e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 2312393614409040804, guid: 1d32e2b34b3213a4b823120348d3c823, type: 3}
+  pcvrSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  questSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: ee0d623ff2c0f82418f3e8719c113775, type: 3}
   dificultySelected: 2
 --- !u!1 &8312422569515764045
@@ -2660,7 +2704,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0d456130d21d4db49fdae55e3e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliceEffect: {fileID: 2312393614409040804, guid: 1d32e2b34b3213a4b823120348d3c823, type: 3}
+  pcvrSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  questSliceEffect:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: ee0d623ff2c0f82418f3e8719c113775, type: 3}
   dificultySelected: 1
 --- !u!1660057539 &9223372036854775807

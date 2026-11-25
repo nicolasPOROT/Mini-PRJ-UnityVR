@@ -67,9 +67,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2053709001177932386, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
-  - {fileID: -6885385000596239375, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
-  - {fileID: 880679598931842220, guid: 20fc7519a83cfd441b13522e13786ee7, type: 3}
+  - {fileID: 2100000, guid: b89e3602e2e0f6e4b85b3755265fa94b, type: 2}
+  - {fileID: 2100000, guid: 84ba249948b66e348988dcf03a6ee52a, type: 2}
+  - {fileID: 2100000, guid: dfce178d74686b747a1e091b4846ca44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,14 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcvrSliceEffect:
     m_AssetGUID: 9a8b5d54e8752f9469607e8c0701d666
-    m_SubObjectName: ''
-    m_SubObjectType: ''
-    m_SubObjectGUID: ''
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   questSliceEffect:
     m_AssetGUID: 2327d7d6fc774cd4db2409c85ea85ef4
-    m_SubObjectName: ''
-    m_SubObjectType: ''
-    m_SubObjectGUID: ''
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: d36d830373337e9428ed88e5e09c9e6d, type: 3}

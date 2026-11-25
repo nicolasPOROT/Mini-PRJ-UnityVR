@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fac57f1e10e92c548a0fe5dea481fecf, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fac57f1e10e92c548a0fe5dea481fecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 530884e6eba106946b09015dbabd210b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fac57f1e10e92c548a0fe5dea481fecf, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fd7b15b4ce26ee040acd2d9b313a1129, type: 2}
     - target: {fileID: 919132149155446097, guid: fac57f1e10e92c548a0fe5dea481fecf, type: 3}
       propertyPath: m_Name
       value: bomb
@@ -150,14 +162,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pcvrSliceEffect:
     m_AssetGUID: 9a8b5d54e8752f9469607e8c0701d666
-    m_SubObjectName: ''
-    m_SubObjectType: ''
-    m_SubObjectGUID: ''
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   questSliceEffect:
     m_AssetGUID: 2327d7d6fc774cd4db2409c85ea85ef4
-    m_SubObjectName: ''
-    m_SubObjectType: ''
-    m_SubObjectGUID: ''
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   sliceAudioClip: {fileID: 8300000, guid: 74622c4504d670d42a626e192f98089c, type: 3}

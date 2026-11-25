@@ -3,7 +3,17 @@ guid: fac57f1e10e92c548a0fe5dea481fecf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_bomb
+    second: {fileID: 2100000, guid: 530884e6eba106946b09015dbabd210b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white_meche
+    second: {fileID: 2100000, guid: dfce178d74686b747a1e091b4846ca44, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
