@@ -2168,7 +2168,7 @@ GameObject:
   - component: {fileID: 6283306142994035027}
   - component: {fileID: 5529483797529245152}
   - component: {fileID: 7658379210600716074}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Dif4Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2417,7 +2417,7 @@ GameObject:
   - component: {fileID: 7431961097886227614}
   - component: {fileID: 7491324132450931279}
   - component: {fileID: 7492157503285513597}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Dif3Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}

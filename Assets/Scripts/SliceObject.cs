@@ -9,6 +9,20 @@ public class SliceObject : MonoBehaviour
     public Material crossSectionMaterial;
     public float cutForce = 2000;
     public LayerMask sliceableLayer;
+
+    private void Awake()
+    {
+        int bombLayer = LayerMask.NameToLayer("Bomb");
+        if (bombLayer >= 0)
+        {
+            sliceableLayer |= 1 << bombLayer;
+        }
+        else
+        {
+            Debug.LogWarning("The Bomb layer is missing; bombs cannot be sliced.", this);
+        }
+    }
+
     void FixedUpdate()
     {
         bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
