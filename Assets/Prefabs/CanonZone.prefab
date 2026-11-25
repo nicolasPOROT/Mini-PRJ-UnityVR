@@ -48,6 +48,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FruitCanon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[2].m_AssetGUID
+      value: 260e9f39b0527244e92b77a3f1ec4339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
     - target: {fileID: 5131469903364865877, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.669421
@@ -129,6 +157,34 @@ PrefabInstance:
     - target: {fileID: 745092459373906751, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_Name
       value: FruitCanon (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[2].m_AssetGUID
+      value: 260e9f39b0527244e92b77a3f1ec4339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
       objectReference: {fileID: 0}
     - target: {fileID: 5131469903364865877, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,6 +268,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FruitCanon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[2].m_AssetGUID
+      value: 260e9f39b0527244e92b77a3f1ec4339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
     - target: {fileID: 5131469903364865877, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3191626
@@ -294,6 +378,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FruitCanon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[2].m_AssetGUID
+      value: 260e9f39b0527244e92b77a3f1ec4339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
     - target: {fileID: 5131469903364865877, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.4676914
@@ -375,6 +487,34 @@ PrefabInstance:
     - target: {fileID: 745092459373906751, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_Name
       value: FruitCanon (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: pcvrFruits.Array.data[2].m_AssetGUID
+      value: 260e9f39b0527244e92b77a3f1ec4339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[0].m_AssetGUID
+      value: 91bb87ba73f041a48aa034a969119026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345323408624292082, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
+      propertyPath: questFruits.Array.data[1].m_AssetGUID
+      value: 828e284ef166fcb4abda6ee2acc62096
       objectReference: {fileID: 0}
     - target: {fileID: 5131469903364865877, guid: cec84cf3e571e5c48b2b40b32fb9ca60, type: 3}
       propertyPath: m_LocalPosition.x

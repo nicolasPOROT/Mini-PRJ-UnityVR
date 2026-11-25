@@ -1,18 +1,19 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public abstract class SliceableObject : MonoBehaviour
 {
-    [SerializeField] private GameObject pcvrSliceEffect;
-    [SerializeField] private GameObject questSliceEffect;
+    [SerializeField] private AssetReferenceGameObject pcvrSliceEffect;
+    [SerializeField] private AssetReferenceGameObject questSliceEffect;
     public AudioClip sliceAudioClip;
 
-    public GameObject GetSliceEffect()
+    public AssetReferenceGameObject GetSliceEffect()
     {
-        GameObject sliceEffect = Application.platform == RuntimePlatform.Android
+        AssetReferenceGameObject sliceEffect = Application.platform == RuntimePlatform.Android
             ? questSliceEffect
             : pcvrSliceEffect;
 
-        if (sliceEffect == null)
+        if (sliceEffect == null || !sliceEffect.RuntimeKeyIsValid())
         {
             Debug.LogError($"No {(Application.platform == RuntimePlatform.Android ? "Quest" : "PCVR")} slice effect is configured on {name}.", this);
         }
@@ -25,7 +26,7 @@ public abstract class SliceableObject : MonoBehaviour
         if (collision.gameObject.CompareTag("fruitKillZone"))
         {
             OnMissed();
-            Destroy(gameObject);
+            ProjectilePool.Return(gameObject);
         }
     }
 

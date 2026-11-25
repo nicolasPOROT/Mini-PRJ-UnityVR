@@ -1,13 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class CanonShoot : MonoBehaviour
 {
     public Transform shootPos;
     private float shootForce = 10f;
     [SerializeField] private float bombProb = 0.2f; // Probability of bomb spawn
-    [SerializeField] private GameObject[] fruits;
+    [SerializeField] private AssetReferenceGameObject[] pcvrFruits;
+    [SerializeField] private AssetReferenceGameObject[] questFruits;
     [SerializeField] private GameObject[] bombs;
+    private readonly List<GameObject> loadedFruits = new List<GameObject>();
+    private readonly List<AsyncOperationHandle<GameObject>> fruitLoadHandles = new List<AsyncOperationHandle<GameObject>>();
+
+    private void Start()
+    {
+        StartCoroutine(LoadPlatformFruits());
+    }
+
+    private IEnumerator LoadPlatformFruits()
+    {
+        AssetReferenceGameObject[] fruitReferences = Application.platform == RuntimePlatform.Android
+            ? questFruits
+            : pcvrFruits;
+
+        foreach (AssetReferenceGameObject fruitReference in fruitReferences)
+        {
+            if (fruitReference == null || !fruitReference.RuntimeKeyIsValid())
+            {
+                Debug.LogError("A platform fruit Addressable reference is missing or invalid.", this);
+                continue;
+            }
+
+            AsyncOperationHandle<GameObject> handle = fruitReference.LoadAssetAsync<GameObject>();
+            fruitLoadHandles.Add(handle);
+            yield return handle;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                loadedFruits.Add(handle.Result);
+            }
+            else
+            {
+                Debug.LogError($"Could not load fruit Addressable '{fruitReference.AssetGUID}'.", this);
+            }
+        }
+    }
 
 
     public void Shoot()
@@ -26,14 +66,34 @@ public class CanonShoot : MonoBehaviour
         if (randomFloat <= bombProb) // Shoot Random Bomb with probability
         {
             int randomBomb = Random.Range(0, bombs.Length);
-            projectile = Instantiate(bombs[randomBomb], shootPos.position, randomRotation);
+            projectile = ProjectilePool.Get(bombs[randomBomb], shootPos.position, randomRotation);
         }
         else // Shoot Random Fruit
         {
-            int randomFruit = Random.Range(0, fruits.Length);
-            projectile = Instantiate(fruits[randomFruit], shootPos.position, randomRotation);
+            if (loadedFruits.Count == 0) return;
+
+            int randomFruit = Random.Range(0, loadedFruits.Count);
+            projectile = ProjectilePool.Get(loadedFruits[randomFruit], shootPos.position, randomRotation);
         }
 
-        projectile.GetComponent<Rigidbody>().AddForce(shootPos.up * shootForce, ForceMode.Impulse);
+        if (projectile == null) return;
+
+        Rigidbody body = projectile.GetComponent<Rigidbody>();
+        if (body == null)
+        {
+            Debug.LogError($"Projectile prefab {projectile.name} has no Rigidbody.", projectile);
+            ProjectilePool.Return(projectile);
+            return;
+        }
+
+        body.AddForce(shootPos.up * shootForce, ForceMode.Impulse);
+    }
+
+    private void OnDestroy()
+    {
+        foreach (AsyncOperationHandle<GameObject> handle in fruitLoadHandles)
+        {
+            if (handle.IsValid()) Addressables.Release(handle);
+        }
     }
 }
